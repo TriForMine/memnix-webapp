@@ -115,5 +115,17 @@
   "daily_learning_recommended": "Daily learning (recommended)",
   "daily_learning_recommended_content": "Work on the deck using our spaced repetition learning algorithm.",
   "free_learning": "Free learning",
-    "free_learning_content": "Practice the deck when you want."
+  "free_learning_content": "Practice the deck when you want.",
+  "username_required": "Username is required",
+  "username_min_length": "Username must be at least {min} characters long",
+  "username_max_length": "Username must be less than {max} characters",
+  "email_required": "Email is required",
+  "email_invalid": "Email must be valid",
+  "email_max_length": "Email must be less than {max} characters",
+  "password_required": "Password is required",
+  "password_min_length": "Password must be at least {min} characters long",
+  "password_max_length": "Password must be less than {max} characters",
+  "password_confirmation_required": "Password confirmation is required",
+  "tos_required": "You must accept the terms of service",
+  "password_confirmation_mismatch": "Password confirmation must match password"
 }

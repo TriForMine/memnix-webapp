@@ -115,5 +115,17 @@
   "daily_learning_recommended": "Apprentissage quotidien (recommandé)",
   "daily_learning_recommended_content": "Travailler le deck en utilisant notre algorithme de répétitions espacées.",
   "free_learning": "Apprentissage libre",
-  "free_learning_content": "Travailler le deck librement."
+  "free_learning_content": "Travailler le deck librement.",
+  "username_required": "Le nom d'utilisateur est requis",
+  "username_min_length": "Le nom d'utilisateur doit faire au moins {min} caractères",
+  "username_max_length": "Le nom d'utilisateur doit faire moins de {max} caractères",
+  "email_required": "L'email est requis",
+  "email_invalid": "L'email est invalide",
+  "email_max_length": "L'email doit faire moins de {max} caractères",
+  "password_required": "Le mot de passe est requis",
+  "password_min_length": "Le mot de passe doit faire au moins {min} caractères",
+  "password_max_length": "Le mot de passe doit faire moins de {max} caractères",
+  "password_confirmation_required": "La confirmation du mot de passe est requise",
+  "tos_required": "Vous devez accepter les conditions générales d'utilisation",
+  "password_confirmation_mismatch": "Les mots de passe ne correspondent pas"
 }
