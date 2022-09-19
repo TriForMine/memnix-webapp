@@ -3,12 +3,16 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { boolean, object, ref, string } from 'yup'
 import { FieldValues } from 'react-hook-form/dist/types/fields'
+import { useState } from 'react'
+import { loginUser, registerUser } from '../../utils/api'
+import Router from 'next/router'
 
 export default function IndexRegister({
   registerPageEvent,
 }: {
   registerPageEvent: () => void
 }) {
+  const [submitting, setSubmitting] = useState(false)
   const t = useTranslations()
 
   const registerSchema = object({
@@ -39,7 +43,25 @@ export default function IndexRegister({
   } = useForm({
     resolver: yupResolver(registerSchema),
   })
-  const onSubmit = (data: FieldValues) => console.log(data)
+  const onSubmit = async (data: FieldValues) => {
+    setSubmitting(true)
+    if (!(await registerSchema.isValid(data))) {
+      return
+    }
+
+    const result = await registerUser(data.email, data.password, data.username)
+
+    setSubmitting(false)
+
+    if (result) {
+      const loginResult = await loginUser(data.email, data.password)
+      if (loginResult) {
+        await Router.push('/home')
+      } else {
+        await Router.push('/')
+      }
+    }
+  }
 
   return (
     <div className="mx-auto w-full max-w-sm overflow-hidden rounded-lg bg-base-100 lg:drop-shadow-xl">
