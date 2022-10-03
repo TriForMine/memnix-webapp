@@ -6,6 +6,16 @@ export const api = axios.create({
   baseURL: baseUrl,
 })
 
+export const apiFetcher = (url: string) => api.get(url).then((res) => res.data)
+export const apiFetcherAuth = (url: string, token: string) =>
+  api
+    .get(url, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    })
+    .then((res) => res.data?.data)
+
 export async function loginUser(email: string, password: string) {
   try {
     const { data } = await api.post('/login', {

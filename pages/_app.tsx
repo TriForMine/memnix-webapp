@@ -4,6 +4,8 @@ import { AbstractIntlMessages, NextIntlProvider } from 'next-intl'
 import useUser from '../data/useUser'
 import { UserContext } from '../components/user'
 import Router from 'next/router'
+import { SWRConfig } from 'swr'
+import { dequal } from 'dequal'
 
 function MyApp({
   Component,
@@ -34,7 +36,13 @@ function MyApp({
   return (
     <UserContext.Provider value={user}>
       <NextIntlProvider locale="en" messages={pageProps.messages}>
-        <Component {...pageProps} />
+        <SWRConfig
+          value={{
+            compare: (a, b) => dequal(a, b),
+          }}
+        >
+          <Component {...pageProps} />
+        </SWRConfig>
       </NextIntlProvider>
     </UserContext.Provider>
   )
